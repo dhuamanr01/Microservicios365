@@ -1,0 +1,36 @@
+spring:
+  config:
+    name: ${spring.application.name}
+    
+server:
+  port: 10401
+  servlet:
+    contextPath: /ms365/eurekaserver
+
+management:
+  server:
+    port: 20401  
+
+eureka:
+#  instance:
+#    appname: ${spring.application.name}
+  client:
+    registerWithEureka: true
+    fetchRegistry: false
+
+info:
+  name: Spring Cloud 365 Eureka-Server     
+  runtime:
+    project:
+      version: @runtime.project.version@
+      artifact: @runtime.project.artifact@  
+    environment:
+      name: @runtime.env.name@
+      profile: @runtime.env.profile@
+      hosts:
+        config: @runtime.env.hosts.config@ 
+        eureka: @runtime.env.hosts.eureka@ 
+        
+
+
+

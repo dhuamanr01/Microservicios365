@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: msproyectos
+  profiles: 
+    active: @runtime.env.profile@
+  cloud:
+    config:
+      profile: ${spring.profiles.active},postgresql
+      enabled: true
+      uri: http://@runtime.env.hosts.config@:10400/ms365/configserver
+      failFast: true  

@@ -1,0 +1,46 @@
+spring:
+  config:
+    name: ${spring.application.name}
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: true
+  datasource:
+    url: jdbc:postgresql://192.168.1.20:5432/ms365
+    username: postgres
+    password: rootroot
+    
+server:
+  port: 10430
+
+management:
+  server:
+    port: 20430   
+
+eureka:
+#  instance:
+#    appname: ${spring.config.name}
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+                  
+application:
+  folder:
+    proyectos: ./proyectos 
+
+info:
+  name: Spring Cloud 365 MS-Proyectos-Archivos     
+  runtime:
+    project:
+      version: @runtime.project.version@
+      artifact: @runtime.project.artifact@  
+    environment:
+      name: @runtime.env.name@
+      profile: @runtime.env.profile@
+      hosts:
+        config: @runtime.env.hosts.config@ 
+        eureka: @runtime.env.hosts.eureka@  
+
+              
+
+

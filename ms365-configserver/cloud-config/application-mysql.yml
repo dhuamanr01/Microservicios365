@@ -1,0 +1,26 @@
+org:
+  hibernate:
+    sql: true
+    
+spring:
+  batch:
+    initializeSchema: never
+  cache:
+    type: none
+  jpa:
+    openInView: false
+    generateDdl: false
+    hibernate:
+      ddlAuto: none
+      naming:
+        physicalStrategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        implicitStrategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+  datasource:
+    platform: mysql
+    driverClassName: com.mysql.cj.jdbc.Driver
+
+
+  

@@ -1,0 +1,33 @@
+spring:
+  config:
+    name: ${spring.application.name}  
+  security:
+    user:
+      name: admin
+      password: password
+  boot:
+    admin:
+      #contextPath: /admin
+      discovery:
+        converter:
+          managementContextPath: /admin/server
+      client:
+        instance:
+          preferIp: true
+
+server:
+  port: 10403
+  servlet:
+    contextPath: /
+  
+eureka:
+  instance: 
+    hostname: ${hostname} 
+    preferIpAddress: true
+  client:
+    region: default
+    registerWithEureka: false
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://@runtime.env.hosts.eureka@:10401/ms365/eurekaserver/eureka
+      

@@ -1,0 +1,75 @@
+info:
+  name: Spring Cloud 365
+  location: cloud
+
+#msusuarios:
+      
+#msproyectos:
+      
+#msproyectosarchivos:
+
+server:
+  servlet:
+    contextPath: /
+
+eureka:
+  instance:
+    hostname: ${info.runtime.environment.hosts.eureka}
+    preferIpAddress: true
+    initialStatus: UNKNOWN
+    leaseRenewalIntervalInSeconds: 10
+    virtualHostName: ${spring.application.name}
+    homePageUrl: http://${eureka.instance.hostname}:${server.port}${server.servlet.contextPath}
+    statusPageUrlPath: http://${eureka.instance.hostname}:${management.server.port}/admin/server/info
+    healthCheckUrlPath: http://${eureka.instance.hostname}:${management.server.port}/admin/server/health
+    nonSecurePortEnabled: true
+    securePortEnabled: false
+    metadataMap:
+      instanceId: ${spring.application.name}:${server.port}
+  client:
+    region: default
+    registerWithEureka: true
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:10401/ms365/eurekaserver/eureka
+    healthCheck:
+      enabled: true
+
+spring:
+  jackson:
+    dateFormat: yyyy-MM-dd'T'HH:mm:ssZ
+    timeZone: America/Bogota
+    #timeZone: America/Mexico_City
+  cloud:
+    config:
+      profile: ${spring.profiles.active}
+      allowOverride: true
+      overrideNone: true
+    loadbalancer:
+      ribbon:
+        enabled: false
+  
+logging:
+  pattern:
+    console: "${spring.application.name} > %-5p : %40.40c{1}[%20.20M:%4L] - %m%n"
+
+management:
+  security:
+    enabled: false
+  endpoint:
+    health:
+      showDetails: always
+    shutdown:
+      enabled: true
+    restart:
+      enabled: true
+  endpoints:
+    web: 
+      basePath: /server
+      exposure:
+        include: "*"
+  server:
+    servlet:
+      contextPath: /admin
+
+      

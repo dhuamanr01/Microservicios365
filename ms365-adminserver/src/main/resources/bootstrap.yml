@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: adminserver
+  boot:
+    admin:
+      discovery:
+        ignored-services: adminserver   
+         

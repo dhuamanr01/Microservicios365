@@ -1,0 +1,37 @@
+spring:
+  config:
+    name: ${spring.application.name} 
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: true
+            
+server:
+  port: 10410
+
+management:
+  server:
+    port: 20410  
+
+eureka:
+#  instance:
+#    appname: ${spring.config.name}
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+
+info:
+  name: Spring Cloud 365 MS-Usuarios     
+  runtime:
+    project:
+      version: @runtime.project.version@
+      artifact: @runtime.project.artifact@  
+    environment:
+      name: @runtime.env.name@
+      profile: @runtime.env.profile@
+      hosts:
+        config: @runtime.env.hosts.config@ 
+        eureka: @runtime.env.hosts.eureka@  
+              
+
+

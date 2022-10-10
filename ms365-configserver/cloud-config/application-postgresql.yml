@@ -1,0 +1,27 @@
+org:
+  hibernate:
+    sql: true
+    
+spring:
+  batch:
+    initializeSchema: never
+  cache:
+    type: none
+  jpa:
+    openInView: false
+    generateDdl: false
+    hibernate:
+      ddlAuto: none
+      naming:
+        physicalStrategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        implicitStrategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL82Dialect
+  datasource:
+    platform: postgresql
+    driverClassName: org.postgresql.Driver
+
+
+
+  

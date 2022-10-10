@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: configserver
+  profiles: 
+    active: @runtime.env.profile@
+  cloud:
+    config:
+      enabled: true
+      profile: ${spring.profiles.active}
+    
+---
+spring:
+  config:
+    activate:
+      onProfile: native
+  cloud:
+    config:
+      server:
+        native:
+          searchLocations: file://@runtime.env.folder.config@
+            
+---
+spring:
+  config:
+    activate:
+      onProfile: cloud
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/cperezd/ms365
+          username: cperezd
+          password: 
+       
+      

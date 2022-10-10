@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://127.0.0.1:5432/ms365-2
+    username: postgres
+    password: postgres
+    
+    
+#spring:
+#  datasource:
+#    url: jdbc:postgresql://192.168.1.8:5432/ms365
+#    username: postgres
+#    password: postgres
+
+    

@@ -1,0 +1,12 @@
+
+ Profile [ @runtime.env.profile@ ]                                        Environment [ @runtime.env.name@ ]
+                                __    __                      _      _
+                               / /   / /                      \ \   \ \
+                              / /   / /      _   _    ___      \ \   \ \
+                             ( (   ( (      / \_/ \  / __\      ) )   ) )
+                              \ \   \ \     |  |  |  \__ \     / /   / /
+                               \_\   \_\    |  |  |  \___/    /_/   /_/
+ [ @runtime.project.artifact@ ]
+
+ ===================================== Version [ @runtime.project.version@ ] =====================================
+

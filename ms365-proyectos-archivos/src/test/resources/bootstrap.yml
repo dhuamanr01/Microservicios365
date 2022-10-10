@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: msproyectosarchivos
+  profiles: 
+    active: dev
+  cloud:
+    config:
+      profile: dev,postgresql
+      enabled: true
+      uri: http://@runtime.env.hosts.config@:10400/ms365/configserver
+      failFast: true  
+    

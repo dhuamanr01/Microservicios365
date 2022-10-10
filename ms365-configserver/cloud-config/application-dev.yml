@@ -1,0 +1,21 @@
+logging:
+  level:
+    root: INFO
+    com:
+      ms365:
+        middleware: TRACE
+
+spring:
+  jpa:
+    properties:
+      hibernate:
+        showSql: true
+        formatSql: false
+        useSqlComments: false
+        type: trace
+  
+  
+  
+  
+  
+        

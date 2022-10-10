@@ -1,0 +1,118 @@
+spring:
+  config:
+    name: ${spring.application.name}
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: true
+    
+server:
+  port: 10402
+  servlet:
+    contextPath: /ms365
+    
+management:
+  server:
+    port: 20402
+
+eureka:
+  #instance:
+  #  appname: ${spring.config.name}
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+              
+zuul:
+  addHostHeader: true
+  forceOriginalQueryStringEncoding: true
+  prefix: /api
+  ignoredServices: '*'
+  sensitiveHeaders: Cookie,Set-Cookie
+  sendErrorFilter:
+    error:
+      disable: true
+    post:
+      disable: true
+  ribbon:
+    eagerLoad:
+      enabled: true
+  host:
+    connectTimeoutMillis: 20000
+    socketTimeoutMillis: 20000
+  routes:
+    #microservice_productos_info:
+    #  path: /productos/info/**
+    #  url: http://127.0.0.1:10402/displayinfo
+    #  # stripPrefix set to true if context path is set to /
+    #  stripPrefix: true
+    microservice_usuarios:
+      path: /usuario/**
+      serviceId: MSUSUARIOS
+      stripPrefix: false
+    microservice_proyectos_archivos:
+      path: /proyecto/archivos/**
+      serviceId: MSPROYECTOSARCHIVOS
+      stripPrefix: false
+    microservice_proyectos:
+      path: /proyecto/**
+      serviceId: MSPROYECTOS
+      stripPrefix: false
+
+ribbon:
+  readTimeout: 60000
+  connectTimeout: 60000
+  maxAutoRetries: 2
+  maxAutoRetriesNextServer: 2
+    
+hystrix: 
+  command:
+    default: 
+      execution:
+        timeout:
+          enabled: false
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000           
+    ZUULSERVER: 
+      execution:
+        timeout:
+          enabled: false
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000           
+    MSUSUARIOS: 
+      execution:
+        timeout:
+          enabled: false
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000           
+    MSPROYECTOSARCHIVOS: 
+      execution:
+        timeout:
+          enabled: false
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000           
+    MSPROYECTOS: 
+      execution:
+        timeout:
+          enabled: false
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000           
+
+info:
+  name: Spring Cloud 365 Zuul-Server     
+  runtime:
+    project:
+      version: @runtime.project.version@
+      artifact: @runtime.project.artifact@  
+    environment:
+      name: @runtime.env.name@
+      profile: @runtime.env.profile@
+      hosts:
+        config: @runtime.env.hosts.config@ 
+        eureka: @runtime.env.hosts.eureka@      
+
+

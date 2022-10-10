@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: eurekaserver
+  profiles: 
+    active: @runtime.env.profile@
+  cloud:
+    config:
+      profile: ${spring.profiles.active}
+      enabled: true
+      uri: http://@runtime.env.hosts.config@:10400/ms365/configserver
+      failFast: true  
+    
