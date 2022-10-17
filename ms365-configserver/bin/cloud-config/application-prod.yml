@@ -1,0 +1,21 @@
+logging:
+  level:
+    root: ERROR
+    com:
+      ms365:
+        middleware: INFO 
+
+spring:
+  jpa:
+    properties:
+      hibernate:
+        showSql: false
+        formatSql: false
+        useSqlComments: false
+        type: trace
+
+
+  
+  
+  
+  

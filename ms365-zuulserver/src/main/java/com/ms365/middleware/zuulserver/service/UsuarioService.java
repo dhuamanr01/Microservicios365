@@ -59,9 +59,10 @@ public class UsuarioService {
 
     return dto;
   }
+  
   //daniel
   @Transactional(Transactional.TxType.REQUIRES_NEW)
-  public UsuarioDTO findByUserName(String userName) throws Exception {
+  public UsuarioDTO findByUserName(String userName ) throws Exception {
     UsuarioDTO dto = null;
     Optional<UsuarioDomain> opt = this.usuarioRepository.findByUserName(userName);
 
@@ -72,5 +73,6 @@ public class UsuarioService {
 
     return dto;
   }
+  
   
 }

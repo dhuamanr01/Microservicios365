@@ -9,6 +9,8 @@ import java.io.InputStreamReader;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
@@ -24,12 +26,18 @@ import org.springframework.context.annotation.Configuration;
 @EnableDiscoveryClient
 @EnableFeignClients("com.ms365.middleware.usuarios.feign")
 @EnableCircuitBreaker
-public class UsuariosApplication {
+public class UsuariosApplication extends SpringBootServletInitializer {
 	public static void main(String[] args) {
 		SpringApplication.run(UsuariosApplication.class, args);
 		UsuariosApplication.displaySplash();
   }
 
+	@Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+        return builder.sources(UsuariosApplication.class);
+    }
+	
+	
   private static void displaySplash() {
     InputStream inputStream = null;
     BufferedReader bufferedReader = null;

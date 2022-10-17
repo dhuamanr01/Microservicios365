@@ -37,8 +37,8 @@ zuul:
     eagerLoad:
       enabled: true
   host:
-    connectTimeoutMillis: 20000
-    socketTimeoutMillis: 20000
+    connectTimeoutMillis: 60000
+    socketTimeoutMillis: 60000
   routes:
     #microservice_productos_info:
     #  path: /productos/info/**
@@ -50,7 +50,7 @@ zuul:
       serviceId: MSUSUARIOS
       stripPrefix: false
     microservice_proyectos_archivos:
-      path: /proyecto/archivos/**
+      path: /proyecto/archivo/**
       serviceId: MSPROYECTOSARCHIVOS
       stripPrefix: false
     microservice_proyectos:
@@ -69,35 +69,35 @@ hystrix:
     default: 
       execution:
         timeout:
-          enabled: false
+          enabled: true
         isolation:
           thread:
             timeoutInMilliseconds: 60000           
     ZUULSERVER: 
       execution:
         timeout:
-          enabled: false
+          enabled: true
         isolation:
           thread:
             timeoutInMilliseconds: 60000           
     MSUSUARIOS: 
       execution:
         timeout:
-          enabled: false
+          enabled: true
         isolation:
           thread:
             timeoutInMilliseconds: 60000           
     MSPROYECTOSARCHIVOS: 
       execution:
         timeout:
-          enabled: false
+          enabled: true
         isolation:
           thread:
             timeoutInMilliseconds: 60000           
     MSPROYECTOS: 
       execution:
         timeout:
-          enabled: false
+          enabled: true
         isolation:
           thread:
             timeoutInMilliseconds: 60000           

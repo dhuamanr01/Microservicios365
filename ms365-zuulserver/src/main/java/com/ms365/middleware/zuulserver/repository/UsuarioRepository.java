@@ -19,4 +19,5 @@ public interface UsuarioRepository extends JpaRepository<UsuarioDomain, Integer>
   public Optional<UsuarioDomain> findById(Integer id);
   
   public Optional<UsuarioDomain> findByUserName(String username);//daniel
+  
 }

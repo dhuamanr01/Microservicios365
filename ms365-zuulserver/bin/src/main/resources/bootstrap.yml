@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: zuulserver
+  profiles: 
+    active: @runtime.env.profile@
+  cloud:
+    config:
+      profile: ${spring.profiles.active},mysql
+      enabled: true
+      uri: http://@runtime.env.hosts.config@:10400/ms365/configserver
+      failFast: true  
+
+    

@@ -16,7 +16,8 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>ms365-usuarios</name>
 	<description>Spring Cloud MS-Usuarios</description>
-
+	<packaging>war</packaging>
+	
 	<properties>
 		<java.version>1.8</java.version>
 		<spring-cloud.version>Hoxton.SR3</spring-cloud.version>
@@ -160,6 +161,7 @@
 	</dependencyManagement>
 
 	<build>
+	
     <resources>
       <resource>
         <directory>src/main/resources</directory>
@@ -178,6 +180,14 @@
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.3.1</version>
+				<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
 				</configuration>
 			</plugin>
 		</plugins>

@@ -42,7 +42,7 @@ public class AuthenticatorService implements UserDetailsService {
 
     logger.info(" > Trying to authenticate to {}", username);
 
-   // if (username.matches("^\\d{1,}$")) {
+    // if (username.matches("^\\d{1,}$")) {
     // logger.info("  > Trying findById");
       logger.info("  > Trying findByUserName");
       try {

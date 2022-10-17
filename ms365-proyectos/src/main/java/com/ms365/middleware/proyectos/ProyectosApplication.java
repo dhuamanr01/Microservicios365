@@ -21,6 +21,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.quartz.SchedulerFactoryBeanCustomizer;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
@@ -53,8 +55,14 @@ import okhttp3.ResponseBody;
 @EnableCircuitBreaker
 @EnableScheduling
 //@PropertySource("classpath:application")
-public class ProyectosApplication {
+public class ProyectosApplication extends SpringBootServletInitializer {
 	private static Logger logger = LoggerFactory.getLogger(ProyectosApplication.class);
+	
+	@Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+        return builder.sources(ProyectosApplication.class);
+    }
+
 	
   ////@Value("${info.runtime.environment.hosts.zuul}")
 //  //private static String zuulServer;
