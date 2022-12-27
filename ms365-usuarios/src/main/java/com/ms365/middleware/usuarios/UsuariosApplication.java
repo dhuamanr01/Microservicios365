@@ -26,16 +26,17 @@ import org.springframework.context.annotation.Configuration;
 @EnableDiscoveryClient
 @EnableFeignClients("com.ms365.middleware.usuarios.feign")
 @EnableCircuitBreaker
-public class UsuariosApplication extends SpringBootServletInitializer {
+//public class UsuariosApplication extends SpringBootServletInitializer {
+public class UsuariosApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(UsuariosApplication.class, args);
 		UsuariosApplication.displaySplash();
   }
 
-	@Override
+	/*@Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
         return builder.sources(UsuariosApplication.class);
-    }
+    }*/
 	
 	
   private static void displaySplash() {

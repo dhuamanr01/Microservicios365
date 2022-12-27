@@ -54,18 +54,15 @@ import okhttp3.ResponseBody;
 @EnableFeignClients("com.ms365.middleware.proyectos.feign")
 @EnableCircuitBreaker
 @EnableScheduling
-//@PropertySource("classpath:application")
-public class ProyectosApplication extends SpringBootServletInitializer {
-	private static Logger logger = LoggerFactory.getLogger(ProyectosApplication.class);
-	
-	@Override
+
+//public class ProyectosApplication extends SpringBootServletInitializer {
+public class ProyectosApplication  {	
+	/*@Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
         return builder.sources(ProyectosApplication.class);
-    }
+    }*/
 
 	
-  ////@Value("${info.runtime.environment.hosts.zuul}")
-//  //private static String zuulServer;
 	
   @Bean(name = "ProyectoJob")
   public JobDetail proyectoJob() {
@@ -135,56 +132,5 @@ public class ProyectosApplication extends SpringBootServletInitializer {
     }
   }
   
-//  private static void testZuul() {
-//	 // logger.info("zuulServer: " + zuulServer);
-//	  
-//	  try {
-//	    OkHttpClient.Builder clientBuilder = new OkHttpClient().newBuilder();
-//	    clientBuilder.connectTimeout(10, TimeUnit.SECONDS);
-//	    clientBuilder.writeTimeout(10, TimeUnit.SECONDS);
-//	    clientBuilder.readTimeout(10, TimeUnit.SECONDS);
-//	    
-//	    OkHttpClient client = clientBuilder.build();
-//		MediaType mediaType = MediaType.parse("application/json");
-//		
-//		String data = "{\"user\" : \"mportilla2022\",\"password\" : \"12345\"}";
-//		RequestBody body = RequestBody.create(mediaType, data);
-//		
-//		Request request = new Request.Builder()
-//			  .url("http://192.168.1.8:10402/ms365/login")
-//			  .method("POST", body)
-//			  .addHeader("Content-Type", "application/json")
-//			  .build();
-//		Response response = client.newCall(request).execute();
-//		ResponseBody resBody = response.body();
-//		String resJSON = (resBody == null ? null : new String(resBody.string()));
-//	    
-//		if (resJSON == null || resJSON.isEmpty()) {
-//		  throw new Exception("No se pudo obtener token");	
-//		}
-//		
-//		JsonParser jsonParser = new JsonParser();
-//		JsonObject jsonObject = jsonParser.parse(resJSON).getAsJsonObject();
-//		String token = jsonObject.get("token").getAsString();
-//		logger.info("---> token: " + token);
-//		
-//		clientBuilder = new OkHttpClient().newBuilder();
-//	    clientBuilder.connectTimeout(10, TimeUnit.SECONDS);
-//	    clientBuilder.writeTimeout(10, TimeUnit.SECONDS);
-//	    clientBuilder.readTimeout(10, TimeUnit.SECONDS);
-//	    
-//	    client = clientBuilder.build();
-//
-//	    request = new Request.Builder()
-//	    		  .url("http://192.168.1.8:10402/ms365/api/proyecto/list")
-//	    		  .method("GET", null)
-//	    		  .addHeader("Authorization", token)
-//	    		  .build();
-//	    response = client.newCall(request).execute();
-//		logger.info("--> invoked proyecto/list  -> " + response.code());
-//	  }
-//	  catch(Exception ex) {
-//		  logger.error(ex.getMessage(), ex);
-//	  }
-//  }
+
 }

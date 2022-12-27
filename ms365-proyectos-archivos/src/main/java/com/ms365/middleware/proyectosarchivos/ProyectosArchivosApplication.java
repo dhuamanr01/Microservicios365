@@ -26,16 +26,17 @@ import org.springframework.context.annotation.Configuration;
 @EnableDiscoveryClient
 @EnableFeignClients("com.ms365.middleware.proyectosarchivos.feign")
 @EnableCircuitBreaker
-public class ProyectosArchivosApplication  extends SpringBootServletInitializer{
+//public class ProyectosArchivosApplication  extends SpringBootServletInitializer{
+public class ProyectosArchivosApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectosArchivosApplication.class, args);
 		ProyectosArchivosApplication.displaySplash();
   }
 	
-	@Override
+	/*@Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
         return builder.sources(ProyectosArchivosApplication.class);
-    }
+    }*/
 
   private static void displaySplash() {
     InputStream inputStream = null;
